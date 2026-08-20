@@ -657,10 +657,10 @@ body {
 }
 
 .advantages-grid {
-    display: grid;
+    display: flex;
     /*grid-template-columns: 1fr 1fr;*/
     gap: 16px;
-    grid-template-columns: repeat(2, 380px);/*repeat(2, minmax(260px, 380px));*/
+    /*grid-template-columns: repeat(2, 380px);/*repeat(2, minmax(260px, 380px));*/
     justify-content: center;
 }
 
