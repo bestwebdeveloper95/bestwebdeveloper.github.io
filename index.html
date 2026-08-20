@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Mobile Mechanic • Выездной автосервис ЧР</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Mobile<span>Mechanic</span></span>
+            </div>
+            <div class="nav-toggle" id="navToggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services" onclick="closeMenu()">Услуги</a></li>
+                <li><a href="#pricing" onclick="closeMenu()">Цены</a></li>
+                <li><a href="#deposit" onclick="closeMenu()">Предоплата</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Контакты</a></li>
+            </ul>
+            <a href="tel:+79280166542" class="nav-phone">📞 +7 928 016-65-42</a>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">🚗 Работаем по всей Чеченской Республике</div>
+            <h1 class="hero-title">
+                <span class="gradient-text">Выездной автомеханик</span>
+            </h1>
+            <p class="hero-desc">
+                Диагностика, ремонт и обслуживание легкового и коммерческого транспорта
+                до 2.5 тонн с выездом на место
+                 
+
+            </p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary">Наши услуги</a>
+                <a href="https://wa.me/79280166542" target="_blank" class="btn-secondary" onclick="trackWA()">WhatsApp</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Выезд</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-car"></div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <span class="section-tag">Наши услуги</span>
+            <h2>Полный спектр услуг</h2>
+            <p>Профессиональный ремонт и обслуживание всех видов транспорта с выездом на место</p>
+        </div>
+        <div class="services-grid" id="servicesGrid"></div>
+    </section>
+
+    <!-- Прайс-лист -->
+    <section id="pricing" class="pricing">
+        <div class="section-header">
+            <span class="section-tag">Прайс-лист</span>
+            <h2>Прозрачные цены</h2>
+            <p>Стоимость услуг зависит от местонахождения автомобиля — уточняйте при заказе</p>
+        </div>
+        <div class="pricing-grid" id="pricingGrid"></div>
+    </section>
+
+    <!-- Предоплата -->
+    <section id="deposit" class="deposit-section">
+        <div class="deposit-card">
+            <div class="deposit-icon">🔒</div>
+            <div class="deposit-content">
+                <span class="deposit-badge">Важное условие</span>
+                <h3>Гарантия принятия заказа</h3>
+                <p>Для подтверждения выезда мастера и бронирования времени требуется <strong>предоплата 1000 ₽</strong></p>
+                <div class="deposit-details">
+                    <div class="deposit-detail-item">
+                        <span class="detail-icon">💳</span>
+                        <div>
+                            <span class="detail-label">Перевод на карту Сбербанка</span>
+                            <span class="detail-value">по номеру телефона</span>
+                        </div>
+                    </div>
+                    <div class="deposit-detail-item highlight" id="phoneCopyArea" onclick="copyPhone()" style="cursor:pointer;">
+                        <span class="detail-icon">📱</span>
+                        <div>
+                            <span class="detail-label">Номер для перевода (нажмите для копирования)</span>
+                            <span class="detail-value phone-number">+7 928 016-65-42</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="deposit-note">
+                    <span>✅ Предоплата входит в стоимость услуги и вычитается из итоговой суммы</span>
+                </div>
+            </div>
+            <button class="deposit-copy" onclick="copyPhone()">
+                <span>📋</span> Копировать номер
+            </button>
+        </div>
+    </section>
+
+    <!-- Почему мы -->
+    <section class="advantages">
+        <div class="section-header">
+            <span class="section-tag">Почему мы</span>
+    
+        </div>
+        <div class="advantages-grid">
+           
+            <div class="advantage-card">
+                <div class="advantage-icon">📍</div>
+                <h3>Выезд по всей ЧР</h3>
+                <p>Работаем в Грозном, Гудермесе, Аргуне, Шали и любых других населённых пунктах республики</p>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-icon">⏱️</div>
+                <h3>Выезд</h3>
+                <p>Приезжаем в оговоренное время, без задержек и опозданий. Работаем оперативно и качественно</p>
+            </div>
+           
+
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="section-header">
+                    <span class="section-tag">Свяжитесь с нами</span>
+                    <h2>Мы на связи 24/7</h2>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <div>
+                        <h4>Телефон</h4>
+                        <a href="tel:+79280166542">+7 928 016-65-42</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">💬</span>
+                    <div>
+                        <h4>WhatsApp</h4>
+                        <a href="https://wa.me/79280166542" target="_blank" onclick="trackWA()">Написать в WhatsApp</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <h4>Регион работы</h4>
+                        <p>Чеченская Республика</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">💳</span>
+                    <div>
+                        <h4>Для предоплаты</h4>
+                        <p>Сбербанк: <strong>+7 928 016-65-42</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Оставить заявку</h3>
+                <form id="contactForm" onsubmit="return false;">
+                    <input type="text" id="formName" placeholder="Ваше имя" required>
+                    <input type="tel" id="formPhone" placeholder="Ваш телефон" required>
+                    <select id="formService" required>
+                        <option value="">Выберите услугу</option>
+                        <option>Общая диагностика</option>
+                        <option>Поиск подсоса воздуха</option>
+                        <option>Замена тормозных колодок</option>
+                        <option>Замена амортизаторов</option>
+                        <option>Замена масла и фильтра</option>
+                        <option>Замена масла в МКПП</option>
+                        <option>Замена масла в АКПП/вариаторе</option>
+                        <option>Замена ремня ГРМ</option>
+                        <option>Замена ступичного подшипника</option>
+                        <option>Замена рулевого наконечника</option>
+                        <option>Другое (уточню)</option>
+                    </select>
+                    <textarea id="formMessage" placeholder="Опишите проблему или задайте вопрос" rows="4"></textarea>
+                    <button type="button" class="btn-primary" id="submitBtn" onclick="submitForm()">
+                        <span id="btnText">Отправить заявку</span>
+                        <span class="spinner" id="btnSpinner" style="display:none;">⏳</span>
+                    </button>
+                    <p class="form-note">После отправки мы свяжемся с вами в течение 15 минут</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Mobile<span>Mechanic</span></span>
+                <p>Выездной автосервис по Чеченской Республике</p>
+                <div class="footer-deposit-info">
+                    <span>💳 Предоплата: 1000 ₽ на карту Сбербанка</span>
+                    <span class="footer-phone">+7 928 016-65-42</span>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Быстрые ссылки</h4>
+                <a href="#services">Услуги</a>
+                <a href="#pricing">Цены</a>
+                <a href="#deposit">Предоплата</a>
+                <a href="#contact">Контакты</a>
+            </div>
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <a href="tel:+79280166542">📞 +7 928 016-65-42</a>
+                <a href="https://wa.me/79280166542" target="_blank" onclick="trackWA()">💬 WhatsApp</a>
+                <a href="#" onclick="copyPhone(); return false;">📋 Скопировать номер</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Mobile Mechanic. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно успешной отправки -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="modal-icon">✅</div>
+            <h2>Заявка отправлена!</h2>
+            <p>Мы получили вашу заявку и свяжемся с вами в ближайшее время.</p>
+            <p class="modal-sub">Обычно мы отвечаем в течение 15 минут.</p>
+            <button class="modal-btn" onclick="closeModal()">Отлично!</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
