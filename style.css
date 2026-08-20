@@ -7,6 +7,9 @@
 
 html {
     scroll-behavior: smooth;
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -15,7 +18,13 @@ body {
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
+    max-width: 100%;
     -webkit-tap-highlight-color: transparent;
+}
+
+img, svg, video {
+    max-width: 100%;
+    height: auto;
 }
 
 ::selection {
@@ -207,6 +216,7 @@ body {
 
 .hero-badge {
     display: inline-block;
+    max-width: 100%;
     background: rgba(249, 115, 22, 0.15);
     color: #f97316;
     padding: 4px 16px;
@@ -216,6 +226,7 @@ body {
     margin-bottom: 20px;
     border: 1px solid rgba(249, 115, 22, 0.2);
     animation: fadeInDown 0.8s ease;
+    overflow-wrap: anywhere;
 }
 
 @keyframes fadeInDown {
@@ -235,6 +246,7 @@ body {
     line-height: 1.1;
     margin-bottom: 16px;
     animation: fadeInUp 0.8s ease;
+    overflow-wrap: anywhere;
 }
 
 @keyframes fadeInUp {
@@ -249,6 +261,7 @@ body {
 }
 
 .gradient-text {
+    color: #f97316;
     background: linear-gradient(135deg, #f97316, #fb923c, #f97316);
     background-size: 200% 200%;
     -webkit-background-clip: text;
@@ -352,15 +365,17 @@ body {
 
 .section-tag {
     display: inline-block;
+    max-width: 100%;
     background: rgba(249, 115, 22, 0.12);
     color: #f97316;
-    padding: 30px 41px; /*3 14*/
+    padding: 3px 14px;
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-bottom: 8px;
+    overflow-wrap: anywhere;
 }
 
 .section-header h2 {
@@ -386,7 +401,7 @@ body {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
     gap: 16px;
 }
 
@@ -658,13 +673,16 @@ body {
 
 .advantages-grid {
     display: flex;
-    /*grid-template-columns: 1fr 1fr;*/
+    flex-wrap: wrap;
     gap: 16px;
-    /*grid-template-columns: repeat(2, 380px);/*repeat(2, minmax(260px, 380px));*/
     justify-content: center;
 }
 
 .advantage-card {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 420px;
+    min-width: 0;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 16px;
@@ -1075,8 +1093,12 @@ body {
     }
     
     .advantages-grid {
-        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+    }
+
+    .advantage-card {
+        flex: 0 1 380px;
+        width: auto;
     }
     
     .contact-container {
@@ -1139,9 +1161,12 @@ body {
     }
     
     .advantages-grid {
-        grid-template-columns: repeat(2, minmax(280px, 420px));
         justify-content: center;
         gap: 24px;
+    }
+
+    .advantage-card {
+        flex: 0 1 420px;
     }
     
     .deposit-card {
@@ -1151,7 +1176,6 @@ body {
 
 @media (min-width: 1200px) {
     .advantages-grid {
-        grid-template-columns: repeat(4, 1fr);
         gap: 30px;
     }
 }
@@ -1270,8 +1294,15 @@ body {
     }
     
     .nav-phone {
-        font-size: 0.8rem;
-        padding: 6px 14px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        max-width: 46%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nav-logo .logo-text {
+        font-size: 0.95rem;
     }
 }
 
