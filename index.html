@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#0a0e17">
     <title>Mobile Mechanic • Выездной автосервис ЧР</title>
@@ -46,7 +46,7 @@
             </p>
             <div class="hero-buttons">
                 <a href="#services" class="btn-primary">Наши услуги</a>
-                <a href="https://wa.me/79280166542" target="_blank" class="btn-secondary" onclick="trackWA()">WhatsApp</a>
+                <a href="https://wa.me/79280166542" target="_blank" rel="noopener noreferrer" class="btn-secondary" onclick="trackWA()">WhatsApp</a>
             </div>
             <div class="hero-stats">
                 <div class="stat-item">
@@ -84,7 +84,7 @@
                             <span class="detail-value">по номеру телефона</span>
                         </div>
                     </div>
-                    <div class="deposit-detail-item highlight" id="phoneCopyArea" onclick="copyPhone()" style="cursor:pointer;">
+                    <div class="deposit-detail-item highlight" id="phoneCopyArea" onclick="copyPhone()" role="button" tabindex="0" aria-label="Копировать номер телефона">
                         <span class="detail-icon">📱</span>
                         <div>
                             <span class="detail-label">Номер для перевода (нажмите для копирования)</span>
@@ -96,7 +96,7 @@
                     <span>✅ Предоплата входит в стоимость услуги и вычитается из итоговой суммы</span>
                 </div>
             </div>
-            <button class="deposit-copy" onclick="copyPhone()">
+            <button class="deposit-copy" onclick="copyPhone()" aria-label="Копировать номер телефона">
                 <span>📋</span> Копировать номер
             </button>
         </div>
@@ -140,7 +140,7 @@
                     <span class="contact-icon">💬</span>
                     <div>
                         <h4>WhatsApp</h4>
-                        <a href="https://wa.me/79280166542" target="_blank" onclick="trackWA()">Написать в WhatsApp</a>
+                        <a href="https://wa.me/79280166542" target="_blank" rel="noopener noreferrer" onclick="trackWA()">Написать в WhatsApp</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -160,15 +160,10 @@
             </div>
             <div class="contact-form">
                 <h3>Оставить заявку</h3>
-                <form id="contactForm" onsubmit="return false;">
-                    <input type="text" id="formName" placeholder="Ваше имя" required>
-                    <input type="tel" id="formPhone" placeholder="Ваш телефон" required 
-                        pattern="[0-9]*" 
-       inputmode="numeric" 
-       onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-       oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                        >
-                    <select id="formService" required>
+                <form id="contactForm" onsubmit="return false;" novalidate>
+                    <input type="text" id="formName" placeholder="Ваше имя" required aria-required="true">
+                    <input type="tel" id="formPhone" placeholder="Ваш телефон" required aria-required="true" pattern="[0-9]*" inputmode="numeric" maxlength="15" oninput="this.value = this.value.replace(/[^0-9]/g, '')" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    <select id="formService" required aria-required="true">
                         <option value="">Выберите услугу</option>
                         <option>FRM MATCHING</option>
                         <option>Регенерация сажевого фильтра</option>
@@ -246,7 +241,7 @@
             <div class="footer-contacts">
                 <h4>Контакты</h4>
                 <a href="tel:+79280166542">📞 +7 928 016-65-42</a>
-                <a href="https://wa.me/79280166542" target="_blank" onclick="trackWA()">💬 WhatsApp</a>
+                <a href="https://wa.me/79280166542" target="_blank" rel="noopener noreferrer" onclick="trackWA()">💬 WhatsApp</a>
                 <a href="#" onclick="copyPhone(); return false;">📋 Скопировать номер</a>
             </div>
         </div>
@@ -266,6 +261,6 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </body>
 </html>
