@@ -74,7 +74,7 @@ const servicesData = [
 
     // === НОВЫЕ УСЛУГИ из первого скриншота ===
     { 
-        icon: '🔧', 
+        icon: '🔌', 
         name: 'FRM MATCHING', 
         price: 'По запросу', 
         desc: 'Согласование модуля FRM',
@@ -88,7 +88,7 @@ const servicesData = [
         detail: 'Очистка сажевого фильтра'
     },
     { 
-        icon: '⚙️', 
+        icon: '🌐', 
         name: 'GATEWAY MODULE DATA CALIBRATION', 
         price: 'По запросу', 
         desc: 'Калибровка данных модуля шлюза',
@@ -123,7 +123,7 @@ const servicesData = [
         detail: 'Адаптивный круиз-контроль'
     },
     { 
-        icon: '🌐', 
+        icon: '🗣️', 
         name: 'Изменение языка', 
         price: 'По запросу', 
         desc: 'Смена языка в бортовом компьютере',
@@ -378,10 +378,8 @@ const servicesData = [
     }
 ];
 
-// ===== PHONE NUMBER =====
 const PHONE = '+79280166542';
 
-// ===== RENDER SERVICES =====
 function renderServices() {
     const grid = document.getElementById('servicesGrid');
     if (!grid) return;
@@ -397,115 +395,70 @@ function renderServices() {
     `).join('');
 }
 
-// ===== КОПИРОВАНИЕ НОМЕРА =====
 function copyPhone() {
-    const phone = '+79280166542';
-    
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(phone)
-            .then(() => {
-                showNotification('✅ Номер скопирован: ' + phone);
-            })
-            .catch(() => {
-                fallbackCopy(phone);
-            });
+    if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(PHONE)
+            .then(() => showNotification('✅ Номер скопирован: ' + PHONE))
+            .catch(() => fallbackCopy(PHONE));
     } else {
-        fallbackCopy(phone);
+        fallbackCopy(PHONE);
     }
 }
 
 function fallbackCopy(phone) {
     try {
-        const tempInput = document.createElement('input');
-        tempInput.value = phone;
-        tempInput.style.position = 'fixed';
-        tempInput.style.opacity = '0';
-        tempInput.style.left = '-9999px';
-        document.body.appendChild(tempInput);
-        
-        tempInput.select();
-        tempInput.setSelectionRange(0, 99999);
+        const input = document.createElement('input');
+        input.value = phone;
+        Object.assign(input.style, { position: 'fixed', opacity: '0', left: '-9999px' });
+        document.body.appendChild(input);
+        input.select();
+        input.setSelectionRange(0, 99999);
         const success = document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        
-        if (success) {
-            showNotification('✅ Номер скопирован: ' + phone);
-        } else {
-            showNotification('❌ Не удалось скопировать. Номер: ' + phone);
-        }
-    } catch (e) {
+        document.body.removeChild(input);
+        showNotification(success ? '✅ Номер скопирован: ' + phone : '❌ Не удалось скопировать. Номер: ' + phone);
+    } catch {
         showNotification('❌ Не удалось скопировать. Номер: ' + phone);
     }
 }
 
-// ===== ОТПРАВКА ЗАЯВКИ =====
 function submitForm() {
     const name = document.getElementById('formName').value.trim();
     const phone = document.getElementById('formPhone').value.trim();
-    const serviceSelect = document.getElementById('formService');
-    const service = serviceSelect.value;
+    const service = document.getElementById('formService').value;
     const message = document.getElementById('formMessage').value.trim();
-    
-    const submitBtn = document.getElementById('submitBtn');
+    const btn = document.getElementById('submitBtn');
     const btnText = document.getElementById('btnText');
     const spinner = document.getElementById('btnSpinner');
 
-    if (!name) {
-        showNotification('⚠️ Пожалуйста, введите ваше имя');
-        document.getElementById('formName').focus();
-        return;
-    }
-    
-    if (!phone) {
-        showNotification('⚠️ Пожалуйста, введите ваш телефон');
-        document.getElementById('formPhone').focus();
-        return;
-    }
-    
-    if (phone.length < 10) {
-        showNotification('⚠️ Пожалуйста, введите корректный номер телефона');
-        document.getElementById('formPhone').focus();
-        return;
-    }
+    if (!name) return showNotification('⚠️ Пожалуйста, введите ваше имя'), document.getElementById('formName').focus();
+    if (!phone) return showNotification('⚠️ Пожалуйста, введите ваш телефон'), document.getElementById('formPhone').focus();
+    if (phone.length < 10) return showNotification('⚠️ Введите корректный номер телефона'), document.getElementById('formPhone').focus();
 
-    submitBtn.disabled = true;
+    btn.disabled = true;
     btnText.textContent = 'Отправка...';
     spinner.style.display = 'inline-block';
 
     let waMessage = `Здравствуйте! Меня зовут ${name}.%0AТелефон: ${phone}`;
-    
-    if (service && service !== '') {
-        waMessage += `%0AУслуга: ${service}`;
-    }
-    
-    if (message) {
-        waMessage += `%0AСообщение: ${message}`;
-    }
+    if (service) waMessage += `%0AУслуга: ${service}`;
+    if (message) waMessage += `%0AСообщение: ${message}`;
 
-    const waUrl = `https://wa.me/${PHONE.replace('+', '')}?text=${waMessage}`;
-    window.open(waUrl, '_blank');
-    
+    window.open(`https://wa.me/${PHONE.replace('+', '')}?text=${waMessage}`, '_blank');
+
     setTimeout(() => {
-        submitBtn.disabled = false;
+        btn.disabled = false;
         btnText.textContent = 'Отправить заявку';
         spinner.style.display = 'none';
-        
         document.getElementById('formName').value = '';
         document.getElementById('formPhone').value = '';
         document.getElementById('formService').value = '';
         document.getElementById('formMessage').value = '';
-        
         showModal();
         showNotification('✅ Заявка отправлена в WhatsApp!');
     }, 500);
 }
 
-// ===== ОТСЛЕЖИВАНИЕ КЛИКОВ ПО WHATSAPP =====
-function trackWA() {
-    console.log('Клик по WhatsApp');
-}
+function trackWA() {}
 
-// ===== МОДАЛЬНОЕ ОКНО =====
 function showModal() {
     const modal = document.getElementById('successModal');
     if (modal) {
@@ -522,7 +475,6 @@ function closeModal() {
     }
 }
 
-// ===== NOTIFICATION (TOAST) =====
 function showNotification(message) {
     const existing = document.querySelector('.notification');
     if (existing) existing.remove();
@@ -535,13 +487,10 @@ function showNotification(message) {
     setTimeout(() => {
         notif.style.opacity = '0';
         notif.style.transition = 'opacity 0.4s ease';
-        setTimeout(() => {
-            if (notif.parentNode) notif.remove();
-        }, 400);
+        setTimeout(() => notif.remove(), 400);
     }, 3000);
 }
 
-// ===== МЕНЮ (бургер) =====
 function toggleMenu() {
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
@@ -562,7 +511,6 @@ function closeMenu() {
     }
 }
 
-// ===== SMOOTH SCROLL =====
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -572,9 +520,8 @@ function initSmoothScroll() {
             const target = document.querySelector(href);
             if (target) {
                 const navHeight = document.querySelector('.navbar')?.offsetHeight || 70;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
                 window.scrollTo({
-                    top: targetPosition,
+                    top: target.getBoundingClientRect().top + window.pageYOffset - navHeight,
                     behavior: 'smooth'
                 });
             }
@@ -582,7 +529,6 @@ function initSmoothScroll() {
     });
 }
 
-// ===== INTERSECTION OBSERVER =====
 function initAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -593,41 +539,27 @@ function initAnimations() {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.service-card, .pricing-item, .advantage-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    document.querySelectorAll('.service-card, .advantage-card').forEach(el => {
+        Object.assign(el.style, { opacity: '0', transform: 'translateY(20px)', transition: 'opacity 0.5s ease, transform 0.5s ease' });
         observer.observe(el);
     });
 }
 
-// ===== ЗАКРЫТИЕ МОДАЛКИ ПО КЛИКУ НА ОВЕРЛЕЙ =====
 function initModalClose() {
-    const overlay = document.getElementById('successModal');
-    if (overlay) {
-        overlay.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-    }
+    document.getElementById('successModal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
 }
 
-// ===== ЗАКРЫТИЕ ПО ESC =====
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeModal();
-    }
-});
+document.addEventListener('keydown', e => e.key === 'Escape' && closeModal());
 
-// ===== INIT =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     renderServices();
     initSmoothScroll();
     initAnimations();
     initModalClose();
     
-    document.getElementById('contactForm').addEventListener('keypress', function(e) {
+    document.getElementById('contactForm').addEventListener('keypress', e => {
         if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
             e.preventDefault();
             submitForm();
@@ -635,6 +567,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     console.log('🚗 Mobile Mechanic • Чеченская Республика');
-    console.log('📞 ' + PHONE);
-    console.log('💳 Предоплата: 1000 ₽ на карту Сбербанка');
 });
