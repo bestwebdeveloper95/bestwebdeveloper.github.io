@@ -162,7 +162,12 @@
                 <h3>Оставить заявку</h3>
                 <form id="contactForm" onsubmit="return false;">
                     <input type="text" id="formName" placeholder="Ваше имя" required>
-                    <input type="tel" id="formPhone" placeholder="Ваш телефон" required>
+                    <input type="tel" id="formPhone" placeholder="Ваш телефон" required 
+                        pattern="[0-9]*" 
+       inputmode="numeric" 
+       onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+       oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                        >
                     <select id="formService" required>
                         <option value="">Выберите услугу</option>
                         <option>FRM MATCHING</option>
