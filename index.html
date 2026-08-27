@@ -25,7 +25,6 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#services" onclick="closeMenu()">Услуги</a></li>
-                <li><a href="#pricing" onclick="closeMenu()">Цены</a></li>
                 <li><a href="#deposit" onclick="closeMenu()">Предоплата</a></li>
                 <li><a href="#contact" onclick="closeMenu()">Контакты</a></li>
             </ul>
@@ -44,8 +43,6 @@
             <p class="hero-desc">
                 Диагностика, ремонт и обслуживание легкового и коммерческого транспорта
                 до 2.5 тонн с выездом на место
-                 
-
             </p>
             <div class="hero-buttons">
                 <a href="#services" class="btn-primary">Наши услуги</a>
@@ -69,16 +66,6 @@
             <p>Профессиональный ремонт и обслуживание всех видов транспорта с выездом на место</p>
         </div>
         <div class="services-grid" id="servicesGrid"></div>
-    </section>
-
-    <!-- Прайс-лист -->
-    <section id="pricing" class="pricing">
-        <div class="section-header">
-            <span class="section-tag">Прайс-лист</span>
-            <h2>Прозрачные цены</h2>
-            <p>Стоимость услуг зависит от местонахождения автомобиля — уточняйте при заказе</p>
-        </div>
-        <div class="pricing-grid" id="pricingGrid"></div>
     </section>
 
     <!-- Предоплата -->
@@ -119,10 +106,8 @@
     <section class="advantages">
         <div class="section-header">
             <span class="section-tag">Почему мы</span>
-    
         </div>
         <div class="advantages-grid">
-           
             <div class="advantage-card">
                 <div class="advantage-icon">📍</div>
                 <h3>Выезд по всей ЧР</h3>
@@ -133,8 +118,6 @@
                 <h3>Выезд</h3>
                 <p>Приезжаем в оговоренное время, без задержек и опозданий. Работаем оперативно и качественно</p>
             </div>
-           
-
         </div>
     </section>
 
@@ -182,17 +165,49 @@
                     <input type="tel" id="formPhone" placeholder="Ваш телефон" required>
                     <select id="formService" required>
                         <option value="">Выберите услугу</option>
-                        <option>Общая диагностика</option>
-                        <option>Поиск подсоса воздуха</option>
-                        <option>Замена тормозных колодок</option>
-                        <option>Замена амортизаторов</option>
-                        <option>Замена масла и фильтра</option>
-                        <option>Замена масла в МКПП</option>
-                        <option>Замена масла в АКПП/вариаторе</option>
-                        <option>Замена ремня ГРМ</option>
-                        <option>Замена ступичного подшипника</option>
-                        <option>Замена рулевого наконечника</option>
-                        <option>Другое (уточню)</option>
+                        <option>FRM MATCHING</option>
+                        <option>Регенерация сажевого фильтра</option>
+                        <option>GATEWAY MODULE DATA CALIBRATION</option>
+                        <option>Диагностика высоковольтной батареи</option>
+                        <option>Иммобилайзер</option>
+                        <option>Форсунка</option>
+                        <option>Система интеллектуального круиз-контроля</option>
+                        <option>Изменение языка</option>
+                        <option>Калибровка угла мотора</option>
+                        <option>Сброс датчика NOx</option>
+                        <option>ODO CHECK</option>
+                        <option>ODO METER</option>
+                        <option>RAIN/LIGHT SENSOR</option>
+                        <option>Калибровка сидений</option>
+                        <option>Сброс стопа/старта</option>
+                        <option>Сдвижный люк</option>
+                        <option>Сброс системы контроля давления в шинах</option>
+                        <option>TRAILER MATCHING</option>
+                        <option>Транспортный режим</option>
+                        <option>TURBOCHARGING MATCHING</option>
+                        <option>Калибровка стеклоподъемника</option>
+                        <option>HIGH VOLTAGE BATTERY (EV)</option>
+                        <option>OBC TEST (EV)</option>
+                        <option>PTC</option>
+                        <option>STATE OF HEALTH (SOH)</option>
+                        <option>Сброс тормоза</option>
+                        <option>Сброс напоминания замены масла</option>
+                        <option>Сброс SAS</option>
+                        <option>Обнуление АКБ</option>
+                        <option>Повторное обучение дроссельной заслонки</option>
+                        <option>Сброс TPMS</option>
+                        <option>Регенерация DPF</option>
+                        <option>Удаление воздуха из системы ABS</option>
+                        <option>Обучение системы AC</option>
+                        <option>Обучение головного освещения AFS</option>
+                        <option>Сброс ADBLUE</option>
+                        <option>Сброс A/F</option>
+                        <option>Сброс SUS</option>
+                        <option>AIRBAG RESET</option>
+                        <option>CLUTCH MATCHING</option>
+                        <option>ECU</option>
+                        <option>Прокачка системы</option>
+                        <option>Обучение</option>
                     </select>
                     <textarea id="formMessage" placeholder="Опишите проблему или задайте вопрос" rows="4"></textarea>
                     <button type="button" class="btn-primary" id="submitBtn" onclick="submitForm()">
@@ -220,7 +235,6 @@
             <div class="footer-links">
                 <h4>Быстрые ссылки</h4>
                 <a href="#services">Услуги</a>
-                <a href="#pricing">Цены</a>
                 <a href="#deposit">Предоплата</a>
                 <a href="#contact">Контакты</a>
             </div>
