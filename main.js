@@ -1,5 +1,6 @@
 // ===== DATA =====
 const servicesData = [
+    // === Старые услуги ===
     { 
         icon: '🔍', 
         name: 'Общая диагностика автомобиля', 
@@ -69,21 +70,312 @@ const servicesData = [
         price: '1500–2000 ₽', 
         desc: 'Для ТС массой до 2500 кг',
         detail: 'Без учёта стоимости наконечников • зависит от местонахождения ТС'
-    }
-];
+    },
 
-const pricingData = [
-    { name: 'Общая диагностика (все виды ТС)', price: '800–1500 ₽' },
-    { name: 'Поиск подсоса воздуха (дымогенератор)', price: '1500–3000 ₽' },
-    { name: 'Замена тормозных колодок (до 2500 кг)', price: '1300–3000 ₽' },
-    { name: 'Замена амортизаторов (до 2500 кг)', price: '1500–3000 ₽/шт' },
-    { name: 'Замена масла и фильтра двигателя', price: '1200–2000 ₽' },
-    { name: 'Замена масла в МКПП', price: '1200–2000 ₽' },
-    { name: 'Замена масла в АКПП/вариаторе', price: '1500–3000 ₽' },
-    { name: 'Замена ремня ГРМ (1.6, АвтоВАЗ)', price: '2000–3000 ₽' },
-    { name: 'Замена ступичного подшипника (до 2500 кг)', price: '2000–3000 ₽' },
-    { name: 'Замена рулевого наконечника (до 2500 кг)', price: '1500–2000 ₽' },
-    { name: 'Замена ремня ГРМ (иномарки)', price: 'По согласованию' }
+    // === НОВЫЕ УСЛУГИ из первого скриншота ===
+    { 
+        icon: '🔧', 
+        name: 'FRM MATCHING', 
+        price: 'По запросу', 
+        desc: 'Согласование модуля FRM',
+        detail: 'Калибровка и адаптация'
+    },
+    { 
+        icon: '🔥', 
+        name: 'Регенерация сажевого фильтра', 
+        price: 'По запросу', 
+        desc: 'Принудительная регенерация DPF',
+        detail: 'Очистка сажевого фильтра'
+    },
+    { 
+        icon: '⚙️', 
+        name: 'GATEWAY MODULE DATA CALIBRATION', 
+        price: 'По запросу', 
+        desc: 'Калибровка данных модуля шлюза',
+        detail: 'Настройка gateway'
+    },
+    { 
+        icon: '🔋', 
+        name: 'Диагностика высоковольтной батареи', 
+        price: 'По запросу', 
+        desc: 'Проверка состояния HV-батареи',
+        detail: 'Гибридные и электромобили'
+    },
+    { 
+        icon: '🔒', 
+        name: 'Иммобилайзер', 
+        price: 'По запросу', 
+        desc: 'Программирование и ремонт',
+        detail: 'Чип-ключи, иммобилайзер'
+    },
+    { 
+        icon: '⛽', 
+        name: 'Форсунка', 
+        price: 'По запросу', 
+        desc: 'Диагностика и замена',
+        detail: 'Топливные форсунки'
+    },
+    { 
+        icon: '🚗', 
+        name: 'Система интеллектуального круиз-контроля', 
+        price: 'По запросу', 
+        desc: 'Калибровка и настройка ACC',
+        detail: 'Адаптивный круиз-контроль'
+    },
+    { 
+        icon: '🌐', 
+        name: 'Изменение языка', 
+        price: 'По запросу', 
+        desc: 'Смена языка в бортовом компьютере',
+        detail: 'Локализация меню'
+    },
+    { 
+        icon: '🔄', 
+        name: 'Калибровка угла мотора', 
+        price: 'По запросу', 
+        desc: 'Настройка угла двигателя',
+        detail: 'Калибровка положения'
+    },
+    { 
+        icon: '🌫️', 
+        name: 'Сброс датчика NOx', 
+        price: 'По запросу', 
+        desc: 'Обнуление показаний NOx-сенсора',
+        detail: 'Система выхлопа'
+    },
+    { 
+        icon: '📊', 
+        name: 'ODO CHECK', 
+        price: 'По запросу', 
+        desc: 'Проверка одометра',
+        detail: 'Диагностика пробега'
+    },
+    { 
+        icon: '📟', 
+        name: 'ODO METER', 
+        price: 'По запросу', 
+        desc: 'Калибровка одометра',
+        detail: 'Настройка приборной панели'
+    },
+    { 
+        icon: '💡', 
+        name: 'RAIN/LIGHT SENSOR', 
+        price: 'По запросу', 
+        desc: 'Калибровка датчика дождя и света',
+        detail: 'Настройка сенсоров'
+    },
+    { 
+        icon: '💺', 
+        name: 'Калибровка сидений', 
+        price: 'По запросу', 
+        desc: 'Настройка электропривода сидений',
+        detail: 'Память сидений'
+    },
+    { 
+        icon: '⏹️', 
+        name: 'Сброс стопа/старта', 
+        price: 'По запросу', 
+        desc: 'Сброс системы Stop/Start',
+        detail: 'Адаптация системы'
+    },
+    { 
+        icon: '🚪', 
+        name: 'Сдвижной люк', 
+        price: 'По запросу', 
+        desc: 'Калибровка панорамной крыши',
+        detail: 'Настройка люка'
+    },
+    { 
+        icon: '🛞', 
+        name: 'Сброс системы контроля давления в шинах', 
+        price: 'По запросу', 
+        desc: 'Сброс TPMS',
+        detail: 'Датчики давления'
+    },
+    { 
+        icon: '🚛', 
+        name: 'TRAILER MATCHING', 
+        price: 'По запросу', 
+        desc: 'Согласование прицепа',
+        detail: 'Адаптация фаркопа'
+    },
+    { 
+        icon: '🚚', 
+        name: 'Транспортный режим', 
+        price: 'По запросу', 
+        desc: 'Включение/отключение Transport Mode',
+        detail: 'Режим перевозки'
+    },
+    { 
+        icon: '⚡', 
+        name: 'TURBOCHARGING MATCHING', 
+        price: 'По запросу', 
+        desc: 'Адаптация турбокомпрессора',
+        detail: 'Калибровка турбины'
+    },
+    { 
+        icon: '🪟', 
+        name: 'Калибровка стеклоподъемника', 
+        price: 'По запросу', 
+        desc: 'Настройка стеклоподъемников',
+        detail: 'Адаптация окон'
+    },
+
+    // === НОВЫЕ УСЛУГИ из второго скриншота ===
+    { 
+        icon: '🔋', 
+        name: 'HIGH VOLTAGE BATTERY (EV)', 
+        price: 'По запросу', 
+        desc: 'Диагностика высоковольтной батареи EV',
+        detail: 'Электромобили'
+    },
+    { 
+        icon: '🔌', 
+        name: 'OBC TEST (EV)', 
+        price: 'По запросу', 
+        desc: 'Тестирование бортового зарядного устройства',
+        detail: 'Зарядка электромобиля'
+    },
+    { 
+        icon: '🌡️', 
+        name: 'PTC', 
+        price: 'По запросу', 
+        desc: 'Диагностика PTC-нагревателя',
+        detail: 'Отопление салона EV'
+    },
+    { 
+        icon: '📈', 
+        name: 'STATE OF HEALTH (SOH)', 
+        price: 'По запросу', 
+        desc: 'Оценка состояния здоровья батареи',
+        detail: 'Степень износа батареи'
+    },
+    { 
+        icon: '🛑', 
+        name: 'Сброс тормоза', 
+        price: 'По запросу', 
+        desc: 'Сброс тормозной системы',
+        detail: 'Адаптация тормозов'
+    },
+    { 
+        icon: '🛢️', 
+        name: 'Сброс напоминания замены масла', 
+        price: 'По запросу', 
+        desc: 'Обнуление сервисного интервала',
+        detail: 'Сброс сервисного индикатора'
+    },
+    { 
+        icon: '🧭', 
+        name: 'Сброс SAS', 
+        price: 'По запросу', 
+        desc: 'Калибровка датчика угла поворота руля',
+        detail: 'Steering Angle Sensor'
+    },
+    { 
+        icon: '🔋', 
+        name: 'Обнуление АКБ', 
+        price: 'По запросу', 
+        desc: 'Сброс параметров аккумулятора',
+        detail: 'Адаптация АКБ'
+    },
+    { 
+        icon: '🚦', 
+        name: 'Повторное обучение дроссельной заслонки', 
+        price: 'По запросу', 
+        desc: 'Адаптация электронной дроссельной заслонки',
+        detail: 'Throttle adaptation'
+    },
+    { 
+        icon: '🛞', 
+        name: 'Сброс TPMS', 
+        price: 'По запросу', 
+        desc: 'Сброс системы контроля давления в шинах',
+        detail: 'TPMS reset'
+    },
+    { 
+        icon: '🔥', 
+        name: 'Регенерация DPF', 
+        price: 'По запросу', 
+        desc: 'Принудительная регенерация сажевого фильтра',
+        detail: 'DPF regeneration'
+    },
+    { 
+        icon: '💨', 
+        name: 'Удаление воздуха из системы ABS', 
+        price: 'По запросу', 
+        desc: 'Прокачка ABS',
+        detail: 'ABS bleeding'
+    },
+    { 
+        icon: '❄️', 
+        name: 'Обучение системы AC', 
+        price: 'По запросу', 
+        desc: 'Инициализация кондиционера',
+        detail: 'AC initialization'
+    },
+    { 
+        icon: '💡', 
+        name: 'Обучение головного освещения AFS', 
+        price: 'По запросу', 
+        desc: 'Калибровка адаптивного света',
+        detail: 'AFS calibration'
+    },
+    { 
+        icon: '🧪', 
+        name: 'Сброс ADBLUE', 
+        price: 'По запросу', 
+        desc: 'Сброс системы мочевины',
+        detail: 'AdBlue reset'
+    },
+    { 
+        icon: '⛽', 
+        name: 'Сброс A/F', 
+        price: 'По запросу', 
+        desc: 'Сброс Air/Fuel датчика',
+        detail: 'Lambda sensor reset'
+    },
+    { 
+        icon: '🔧', 
+        name: 'Сброс SUS', 
+        price: 'По запросу', 
+        desc: 'Сброс подвески',
+        detail: 'Suspension reset'
+    },
+    { 
+        icon: '🛡️', 
+        name: 'AIRBAG RESET', 
+        price: 'По запросу', 
+        desc: 'Сброс подушек безопасности',
+        detail: 'SRS reset'
+    },
+    { 
+        icon: '⚙️', 
+        name: 'CLUTCH MATCHING', 
+        price: 'По запросу', 
+        desc: 'Адаптация сцепления',
+        detail: 'Clutch adaptation'
+    },
+    { 
+        icon: '💻', 
+        name: 'ECU', 
+        price: 'По запросу', 
+        desc: 'Диагностика и перепрошивка ECU',
+        detail: 'Engine control unit'
+    },
+    { 
+        icon: '💧', 
+        name: 'Прокачка системы', 
+        price: 'По запросу', 
+        desc: 'Прокачка тормозной/топливной системы',
+        detail: 'System bleeding'
+    },
+    { 
+        icon: '📚', 
+        name: 'Обучение', 
+        price: 'По запросу', 
+        desc: 'Адаптация и обучение систем',
+        detail: 'Adaptation & learning'
+    }
 ];
 
 // ===== PHONE NUMBER =====
@@ -105,24 +397,10 @@ function renderServices() {
     `).join('');
 }
 
-// ===== RENDER PRICING =====
-function renderPricing() {
-    const grid = document.getElementById('pricingGrid');
-    if (!grid) return;
-
-    grid.innerHTML = pricingData.map(item => `
-        <div class="pricing-item">
-            <span class="name">${item.name}</span>
-            <span class="price">${item.price}</span>
-        </div>
-    `).join('');
-}
-
-// ===== КОПИРОВАНИЕ НОМЕРА (РАБОТАЕТ!) =====
+// ===== КОПИРОВАНИЕ НОМЕРА =====
 function copyPhone() {
     const phone = '+79280166542';
     
-    // Способ 1: Современный API
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(phone)
             .then(() => {
@@ -136,10 +414,8 @@ function copyPhone() {
     }
 }
 
-// ===== FALLBACK КОПИРОВАНИЕ =====
 function fallbackCopy(phone) {
     try {
-        // Создаём временный input
         const tempInput = document.createElement('input');
         tempInput.value = phone;
         tempInput.style.position = 'fixed';
@@ -147,7 +423,6 @@ function fallbackCopy(phone) {
         tempInput.style.left = '-9999px';
         document.body.appendChild(tempInput);
         
-        // Выделяем и копируем
         tempInput.select();
         tempInput.setSelectionRange(0, 99999);
         const success = document.execCommand('copy');
@@ -163,9 +438,8 @@ function fallbackCopy(phone) {
     }
 }
 
-// ===== ОТПРАВКА ЗАЯВКИ (РАБОТАЕТ!) =====
+// ===== ОТПРАВКА ЗАЯВКИ =====
 function submitForm() {
-    // Получаем данные из формы
     const name = document.getElementById('formName').value.trim();
     const phone = document.getElementById('formPhone').value.trim();
     const serviceSelect = document.getElementById('formService');
@@ -176,7 +450,6 @@ function submitForm() {
     const btnText = document.getElementById('btnText');
     const spinner = document.getElementById('btnSpinner');
 
-    // === ВАЛИДАЦИЯ ===
     if (!name) {
         showNotification('⚠️ Пожалуйста, введите ваше имя');
         document.getElementById('formName').focus();
@@ -195,12 +468,10 @@ function submitForm() {
         return;
     }
 
-    // === БЛОКИРУЕМ КНОПКУ ===
     submitBtn.disabled = true;
     btnText.textContent = 'Отправка...';
     spinner.style.display = 'inline-block';
 
-    // === ФОРМИРУЕМ СООБЩЕНИЕ ДЛЯ WHATSAPP ===
     let waMessage = `Здравствуйте! Меня зовут ${name}.%0AТелефон: ${phone}`;
     
     if (service && service !== '') {
@@ -211,28 +482,20 @@ function submitForm() {
         waMessage += `%0AСообщение: ${message}`;
     }
 
-    // === ОТКРЫВАЕМ WHATSAPP ===
     const waUrl = `https://wa.me/${PHONE.replace('+', '')}?text=${waMessage}`;
-    
-    // Открываем в новой вкладке
     window.open(waUrl, '_blank');
     
-    // === ПОКАЗЫВАЕМ УСПЕХ ===
     setTimeout(() => {
-        // Разблокируем кнопку
         submitBtn.disabled = false;
         btnText.textContent = 'Отправить заявку';
         spinner.style.display = 'none';
         
-        // Очищаем форму
         document.getElementById('formName').value = '';
         document.getElementById('formPhone').value = '';
         document.getElementById('formService').value = '';
         document.getElementById('formMessage').value = '';
         
-        // Показываем модальное окно
         showModal();
-        
         showNotification('✅ Заявка отправлена в WhatsApp!');
     }, 500);
 }
@@ -240,7 +503,6 @@ function submitForm() {
 // ===== ОТСЛЕЖИВАНИЕ КЛИКОВ ПО WHATSAPP =====
 function trackWA() {
     console.log('Клик по WhatsApp');
-    // Здесь можно добавить аналитику
 }
 
 // ===== МОДАЛЬНОЕ ОКНО =====
@@ -262,7 +524,6 @@ function closeModal() {
 
 // ===== NOTIFICATION (TOAST) =====
 function showNotification(message) {
-    // Удаляем предыдущее уведомление
     const existing = document.querySelector('.notification');
     if (existing) existing.remove();
 
@@ -271,7 +532,6 @@ function showNotification(message) {
     notif.textContent = message;
     document.body.appendChild(notif);
 
-    // Автоматическое скрытие через 3 секунды
     setTimeout(() => {
         notif.style.opacity = '0';
         notif.style.transition = 'opacity 0.4s ease';
@@ -363,12 +623,10 @@ document.addEventListener('keydown', function(e) {
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', function() {
     renderServices();
-    renderPricing();
     initSmoothScroll();
     initAnimations();
     initModalClose();
     
-    // Добавляем обработчик Enter для формы
     document.getElementById('contactForm').addEventListener('keypress', function(e) {
         if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
             e.preventDefault();
